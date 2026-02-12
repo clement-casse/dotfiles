@@ -1,0 +1,58 @@
+packages:
+  darwin:
+    brews:
+    - "starship"
+    - "eza"
+    - "zoxide"
+    - "direnv"
+    - "buf"
+    - "mise"
+    - "git"
+    - "jj"
+    - "pre-commit"
+    - "rustup"
+    - "mergiraf"
+    - "bacon-ls"
+
+    casks:
+    - "ghostty"
+    - "visual-studio-code"
+    - "font-monaspace"
+    - "font-iosevka-nerd-font"
+    - "font-jetbrains-mono"
+
+    - "raindropio"
+    - "vlc"
+    - "discord"
+    - "signal"
+
+    vscodeExtensions:
+    # Themes
+    - "teabyii.ayu"
+    - "arcticicestudio.nord-visual-studio-code"
+    - "github.github-vscode-theme"
+
+    # Common
+    - "editorconfig.editorconfig"
+    - "rodrigocfd.format-comment"
+    - "bufbuild.vscode-buf"
+    - "bierner.markdown-mermaid"
+
+    # Rust
+    - "tamasfe.even-better-toml"
+    - "rust-lang.rust-analyzer"
+    - "vadimcn.vscode-lldb"
+    - "masterustacean.cargo-runner"
+    - "mitsuhiko.insta"
+    - "matteobigoi.bacon-ls-vscode"
+
+    # Typst
+    - "myriad-dreamin.tinymist"
+    
+    # Go
+    - golang.go
+
+    # Python
+    - "donjayamanne.python-extension-pack"
+    - "ms-toolsai.jupyter"
+    - "charliermarsh.ruff"

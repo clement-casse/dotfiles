@@ -1,0 +1,18 @@
+# Ghostty shell integration for Bash. This should be at the top of your bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
+
+if [[ $TERM != "dumb" ]]; then
+  eval "$(direnv hook bash)"
+  eval "$(mise activate bash)"
+  eval "$(zoxide init bash --cmd cd)"
+  eval "$(starship init bash)"
+fi
+
+alias -- eza='eza --icons auto --git --group-directories-first --links --header --git --classify -a'
+alias -- la='eza -a'
+alias -- ll='eza -l'
+alias -- lla='eza -la'
+alias -- ls=eza
+alias -- lt='eza --tree'

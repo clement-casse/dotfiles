@@ -1,0 +1,14 @@
+[".local/share/zsh/_git"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
+    refreshPeriod = "168h"
+
+[".local/share/zsh/_direnv"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/zsh-users/zsh-completions/refs/heads/master/src/_direnv"
+    refreshPeriod = "168h"
+
+[".local/share/zsh/_pre-commit"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/zsh-users/zsh-completions/refs/heads/master/src/_pre-commit"
+    refreshPeriod = "168h"

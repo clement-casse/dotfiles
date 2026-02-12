@@ -1,0 +1,31 @@
+{{- /*
+  https://ghostty.org/docs/config/reference
+*/ -}}
+
+theme = nord
+font-size = 12
+font-family = Monaspace Krypton
+mouse-scroll-multiplier = 10
+background-opacity = 0.700000
+background-blur-radius = 20
+
+window-inherit-working-directory = true
+window-step-resize = true
+window-padding-x = 12
+window-padding-y = 6
+
+{{ if eq .chezmoi.os "darwin" -}}
+macos-auto-secure-input = true
+macos-non-native-fullscreen = padded-notch
+macos-shortcuts = allow
+macos-titlebar-proxy-icon = hidden
+
+keybind = global:ctrl+f12=toggle_quick_terminal
+
+initial-window = false
+quick-terminal-autohide = true
+quick-terminal-position = top
+quick-terminal-size = 40%
+quick-terminal-screen = macos-menu-bar
+quick-terminal-space-behavior = remain
+{{- end }}

@@ -1,0 +1,39 @@
+{{- /*
+  https://blog.gitbutler.com/how-git-core-devs-configure-git
+*/ -}}
+
+[core]
+        autocrlf = "input"
+        excludesfile = ~/.config/git/ignore
+[user]
+        email = {{ .email | quote }}
+        name = {{ .name | quote }}
+[column]
+        ui = auto
+[init]
+        defaultBranch = "main"
+[branch]
+        sort = "-committerdate"
+[tag]
+        sort = "version:refname"
+[fetch]
+        all = true
+        prune = true
+        pruneTags = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
+[credential]
+        helper = {{- if eq .chezmoi.os "darwin" }} "osxkeychain" {{- else -}} "store" {{- end }}
+[help]
+        autocorrect = "prompt"
+[merge]
+        conflictStyle = "diff3"
+[merge "mergiraf"]
+        name = "mergiraf"
+        driver = "mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L"

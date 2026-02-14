@@ -8,6 +8,7 @@ if [[ $TERM != "dumb" ]]; then
   eval "$(mise activate bash)"
   eval "$(zoxide init bash --cmd cd)"
   eval "$(starship init bash)"
+  eval "$(pay-respects bash --alias)"
 fi
 
 alias -- eza='eza --icons auto --git --group-directories-first --links --header --git --classify -a'

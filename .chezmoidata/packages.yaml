@@ -5,14 +5,9 @@ packages:
     - "eza"
     - "zoxide"
     - "direnv"
-    - "buf"
     - "mise"
     - "git"
     - "jj"
-    - "pre-commit"
-    - "rustup"
-    - "mergiraf"
-    - "bacon-ls"
 
     casks:
     - "ghostty"
@@ -37,6 +32,7 @@ packages:
     - "rodrigocfd.format-comment"
     - "bufbuild.vscode-buf"
     - "bierner.markdown-mermaid"
+    - "hverlin.mise-vscode"
 
     # Rust
     - "tamasfe.even-better-toml"

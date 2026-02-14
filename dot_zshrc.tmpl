@@ -13,6 +13,7 @@ if [[ $TERM != "dumb" ]]; then
   eval "$(mise activate zsh)"
   eval "$(zoxide init zsh --cmd cd)"
   eval "$(starship init zsh)"
+  eval "$(pay-respects zsh --alias)"
 fi
 
 alias -- eza='eza --icons auto --git --group-directories-first --links --header --git --classify -a'

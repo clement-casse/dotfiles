@@ -15,6 +15,7 @@ source <(chezmoi completion zsh)
 if [[ $TERM != "dumb" ]]; then
   eval "$(direnv hook zsh)"
   eval "$(mise activate zsh)"
+  eval "$(mise hook-env -s zsh)"
   eval "$(zoxide init zsh --cmd cd)"
   eval "$(starship init zsh)"
   eval "$(pay-respects zsh --alias)"

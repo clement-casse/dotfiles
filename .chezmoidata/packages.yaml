@@ -1,13 +1,13 @@
 packages:
   darwin:
+    taps:
+    - "protonpass/tap"
+
     brews:
-    - "starship"
-    - "eza"
-    - "zoxide"
-    - "direnv"
-    - "mise"
     - "git"
-    - "jj"
+    - "mise"
+    - "pass-cli"
+    - "dockutil"
 
     casks:
     - "ghostty"
@@ -46,7 +46,7 @@ packages:
     - "myriad-dreamin.tinymist"
     
     # Go
-    - golang.go
+    - "golang.go"
 
     # Python
     - "donjayamanne.python-extension-pack"

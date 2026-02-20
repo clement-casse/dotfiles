@@ -1,3 +1,23 @@
+#!/usr/bin/env zsh
+
+# If not running interactively, don't do anything
+#############################################
+case $- in
+  *i*) ;;
+  *) return ;;
+esac
+[ -z "$PS1" ] && return
+
+# If zsh is emulating another shell, don't source .zshrc
+#############################################
+if [[ $0 == 'ksh' ]] || [[ $0 == 'sh' ]]; then
+  source "${HOME}/.shrc"
+  exit
+elif [[ $0 == 'bash' ]]; then
+  source "${HOME}/.bashrc"
+  exit
+fi
+
 if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
   source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
 fi
@@ -7,6 +27,11 @@ setopt histignorespace
 setopt rm_star_silent
 
 fpath=(~/.local/share/zsh $fpath)
+{{ if eq .chezmoi.os "darwin" -}}
+if type brew &>/dev/null; then
+  fpath+="$(brew --prefix)/share/zsh/site-functions"
+fi
+{{- end }}
 autoload -Uz compinit && compinit
 source <(jj util completion zsh)
 source <(mise completion zsh)

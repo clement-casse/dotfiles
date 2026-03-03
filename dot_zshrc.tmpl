@@ -33,6 +33,9 @@ if type brew &>/dev/null; then
 fi
 {{- end }}
 autoload -Uz compinit && compinit
+
+{{ if has "dev" .usages -}}
+
 source <(jj util completion zsh)
 source <(mise completion zsh)
 source <(chezmoi completion zsh)
@@ -52,3 +55,8 @@ alias -- ll='eza -l'
 alias -- lla='eza -la'
 alias -- ls=eza
 alias -- lt='eza --tree'
+
+{{- end }}
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward

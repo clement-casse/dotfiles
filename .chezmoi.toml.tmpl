@@ -1,0 +1,22 @@
+{{ $name := promptStringOnce . "name" "Enter your name" -}}
+{{ $email := promptStringOnce . "email" "Enter your email address" -}}
+{{- $all_usages := list "perso" "dev" -}}
+{{- $usages := promptMultichoiceOnce
+    . "usages"
+    "What usage is this computer for"
+    $all_usages
+    (list "perso" "dev")
+-}}
+
+[data]
+name = {{ $name | quote }}
+email = {{ $email | quote }}
+usages = {{ $usages | toToml }}
+
+netrcEntries = []
+
+[data.additionalBrews]
+taps = []
+brews = []
+casks = []
+vscodeExtensions = []

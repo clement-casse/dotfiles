@@ -1,18 +1,36 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.darwin.taps -}}
-tap {{ . | quote }}
+if ! (xcode-select -p 2>&1 >/dev/null); then
+    echo "Command line tools are not installed, proceeding to installation ...";
+    xcode-select --install;
+fi
+
+if ! (command -v brew 2>&1 >/dev/null); then
+    echo "Homebrew is not installed, proceeding to installation ...";
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
+fi
+
+if ! (command -v mas 2>&1 >/dev/null); then
+    echo "Mas is not installed, proceeding to installation ...";
+    brew install mas;
+fi
+
+/opt/homebrew/bin/brew bundle --file=/dev/stdin <<EOF
+brew "mas"
+{{ template "brewfile.tmpl" .darwinPackages.common -}}
+
+{{ if has "dev" .usages -}}
+{{ template "brewfile.tmpl" .darwinPackages.dev -}}
 {{ end -}}
-{{ range .packages.darwin.brews -}}
-brew {{ . | quote }}
+
+{{ if has "perso" .usages -}}
+{{ template "brewfile.tmpl" .darwinPackages.perso -}}
 {{ end -}}
-{{ range .packages.darwin.casks -}}
-cask {{ . | quote }}
+
+{{ if hasKey . "additionalBrews" -}}
+{{ template "brewfile.tmpl" .additionalBrews -}}
 {{ end -}}
-{{ range .packages.darwin.vscodeExtensions -}}
-vscode {{ . | quote }}
-{{ end -}}
+
 EOF
 {{ end -}}

@@ -1,0 +1,29 @@
+{{ if hasKey . "taps" -}}
+{{ range .taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+{{ if hasKey . "brews" -}}
+{{ range .brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+{{ if hasKey . "casks" -}}
+{{ range .casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+{{ if hasKey . "vscodeExtensions" -}}
+{{ range .vscodeExtensions -}}
+vscode {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+{{ if hasKey . "mas" -}}
+{{ range .mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
+{{ end -}}

@@ -1,7 +1,10 @@
+README.md
+
 {{ if ne .chezmoi.os "darwin" }}
 Library/
 Library/**/*
 {{ end }}
+
 {{ if eq .chezmoi.os "darwin" }}
 .config/Code/
 .config/Code/**/*

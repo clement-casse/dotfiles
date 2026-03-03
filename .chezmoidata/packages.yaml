@@ -1,31 +1,28 @@
-packages:
-  darwin:
-    taps:
-    - "protonpass/tap"
-
+darwinPackages:
+  common:
     brews:
+    - "chezmoi"
+    - "dockutil"
+
+  dev:
+    brews:
+    - "gettext"
     - "git"
     - "mise"
-    - "pass-cli"
-    - "dockutil"
 
     casks:
     - "ghostty"
     - "visual-studio-code"
-    - "font-monaspace-nf"
     - "font-iosevka-nerd-font"
     - "font-jetbrains-mono-nerd-font"
-
-    - "raindropio"
-    - "vlc"
-    - "discord"
-    - "signal"
+    - "font-monaspace-nf"
 
     vscodeExtensions:
     # Themes
     - "teabyii.ayu"
-    - "arcticicestudio.nord-visual-studio-code"
     - "github.github-vscode-theme"
+    - "jdinhlife.gruvbox"
+    - "file-icons.file-icons"
 
     # Common
     - "editorconfig.editorconfig"
@@ -52,3 +49,28 @@ packages:
     - "donjayamanne.python-extension-pack"
     - "ms-toolsai.jupyter"
     - "charliermarsh.ruff"
+
+  perso:
+    taps:
+    - "protonpass/tap"
+
+    brews:
+    - "pass-cli"
+
+    casks:
+    - "antigravity"
+    - "discord"
+    - "orbstack"
+    - "orion"
+    - "raindropio"
+    - "signal"
+    - "vivaldi"
+    - "vlc"
+
+    vscodeExtensions:
+    - "visualjj.visualjj"
+
+    mas:
+    - name: "Tailscale"
+      id: "1475387142"
+  

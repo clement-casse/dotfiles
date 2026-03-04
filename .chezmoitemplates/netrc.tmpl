@@ -1,0 +1,10 @@
+machine {{ .machine }}
+{{- if hasKey . "login" }}
+  login {{ .login }}
+{{- end }}
+{{- if hasKey . "password" }}
+  password {{ .password }}
+{{- end }}
+{{- if hasKey . "account" }}
+  account {{ .account }}
+{{- end }}

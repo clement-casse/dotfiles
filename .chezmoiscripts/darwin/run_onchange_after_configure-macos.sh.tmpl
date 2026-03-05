@@ -3,6 +3,13 @@
 
 set -eufo pipefail
 
+{{ if has "dev" .usages -}}
+if ! (id -Gn "$(whoami)" | grep '\b_developer\b' 2>&1 >/dev/null); then
+    echo "Adding user '$(whoami)' to group '_developer'";
+    dscl . append /Groups/_developer GroupMembership "$(whoami)";
+fi
+{{- end }}
+
 # Finder
 trap 'killall Finder' EXIT
 

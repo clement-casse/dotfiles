@@ -13,7 +13,12 @@ fi
 
 if ! (command -v mas 2>&1 >/dev/null); then
     echo "Mas is not installed, proceeding to installation ...";
-    brew install mas;
+    /opt/homebrew/bin/brew install mas;
+fi
+
+if ! (command -v mise 2>&1 >/dev/null); then
+    echo "mise is not installed, proceeding to installation ...";
+    curl https://mise.run | MISE_INSTALL_PATH="${HOME}/.local/bin/mise" sh;
 fi
 
 /opt/homebrew/bin/brew bundle --file=/dev/stdin <<EOF

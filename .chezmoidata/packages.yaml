@@ -1,14 +1,12 @@
 darwinPackages:
   common:
     brews:
-    - "chezmoi"
     - "dockutil"
 
   dev:
     brews:
     - "gettext"
     - "git"
-    - "mise"
 
     casks:
     - "ghostty"

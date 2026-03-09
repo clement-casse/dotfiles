@@ -1,3 +1,10 @@
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{- end -}}
+
 {{ $name := promptStringOnce . "name" "Enter your name" -}}
 {{ $email := promptStringOnce . "email" "Enter your email address" -}}
 {{- $all_usages := list "perso" "dev" -}}
@@ -12,11 +19,15 @@
 name = {{ $name | quote }}
 email = {{ $email | quote }}
 usages = {{ $usages | toToml }}
+ephemeral = {{ $ephemeral }}
 
-netrcEntries = []
+additionalNetrcEntries = []
 
 [data.additionalBrews]
 taps = []
 brews = []
 casks = []
 vscodeExtensions = []
+
+[github]
+refreshPeriod = "12h"

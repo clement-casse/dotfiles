@@ -1,37 +1,47 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-if ! (xcode-select -p 2>&1 >/dev/null); then
-    echo "Command line tools are not installed, proceeding to installation ...";
-    xcode-select --install;
-fi
-
-if ! (command -v brew 2>&1 >/dev/null); then
-    echo "Homebrew is not installed, proceeding to installation ...";
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
-fi
-
 if ! (command -v mas 2>&1 >/dev/null); then
-    echo "Mas is not installed, proceeding to installation ...";
-    /opt/homebrew/bin/brew install mas;
+  echo "Mas is not installed, proceeding to installation ...";
+  brew install mas;
 fi
 
 if ! (command -v mise 2>&1 >/dev/null); then
-    echo "mise is not installed, proceeding to installation ...";
-    curl https://mise.run | MISE_INSTALL_PATH="${HOME}/.local/bin/mise" sh;
+  echo "mise is not installed, proceeding to installation ...";
+  curl https://mise.run | MISE_INSTALL_PATH="${HOME}/.local/bin/mise" sh;
 fi
 
-/opt/homebrew/bin/brew bundle --file=/dev/stdin <<EOF
+{{ $usages := .usages -}}
+
+{{- range $usage, $brew := .darwinPackages -}}
+{{- if or (has $usage $usages) (eq $usage "common") -}}
+{{- range (index $brew "taps") -}}
+if ! brew tap | grep -q {{ . | quote }}; then
+  brew tap {{ . | quote }}
+else
+  echo "tap {{ . }} is already known ... skipping"
+fi
+{{ end -}}
+{{ end -}}
+{{ end -}}
+
+{{- if hasKey . "additionalBrews" }}
+{{- range (index .additionalBrews "taps") -}}
+if ! brew tap | grep -q {{ . | quote }}; then
+  brew tap {{ . | quote }}
+else
+  echo "tap {{ . }} is already known ... skipping"
+fi
+{{ end -}}
+{{ end }}
+
+brew bundle --cleanup --zap --file=/dev/stdin <<EOF
 brew "mas"
-{{ template "brewfile.tmpl" .darwinPackages.common -}}
-
-{{ if has "dev" .usages -}}
-{{ template "brewfile.tmpl" .darwinPackages.dev -}}
+{{ range $usage, $brew := .darwinPackages -}}
+{{ if or (has $usage $usages) (eq $usage "common") -}}
+{{ template "brewfile.tmpl" $brew }}
 {{ end -}}
-
-{{ if has "perso" .usages -}}
-{{ template "brewfile.tmpl" .darwinPackages.perso -}}
-{{ end -}}
+{{- end }}
 
 {{ if hasKey . "additionalBrews" -}}
 {{ template "brewfile.tmpl" .additionalBrews -}}

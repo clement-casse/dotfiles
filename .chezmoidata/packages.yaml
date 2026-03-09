@@ -10,6 +10,7 @@ darwinPackages:
 
     casks:
     - "ghostty"
+    - "desktoppr"
     - "visual-studio-code"
     - "font-iosevka-nerd-font"
     - "font-jetbrains-mono-nerd-font"
@@ -62,7 +63,6 @@ darwinPackages:
     - "orion"
     - "raindropio"
     - "signal"
-    - "vivaldi"
     - "vlc"
 
     vscodeExtensions:

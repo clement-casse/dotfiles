@@ -1,0 +1,3 @@
+{{ range .additionalNetrcEntries -}}
+{{ template "netrc.tmpl" . }}
+{{ end -}}

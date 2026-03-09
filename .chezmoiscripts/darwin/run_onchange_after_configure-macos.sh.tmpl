@@ -10,6 +10,25 @@ if ! (id -Gn "$(whoami)" | grep '\b_developer\b' 2>&1 >/dev/null); then
 fi
 {{- end }}
 
+# macOS
+
+defaults write NSGlobalDomain AppleIconAppearanceTheme -string ClearDark
+defaults write NSGlobalDomain AppleIconAppearanceTintColor -string Graphite
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -int 1
+
+# Keyboard
+
+defaults write com.apple.HIToolbox AppleFnUsageType -int 0
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Trackpad
+
+defaults write NSGlobalDomain AppleEnableMouseSwipeNavigateWithScrolls -bool true
+defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+
 # Finder
 trap 'killall Finder' EXIT
 

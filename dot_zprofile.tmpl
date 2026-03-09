@@ -2,9 +2,8 @@ if [[ -e ~/.local/bin/mise ]]; then
     eval "$(~/.local/bin/mise activate zsh --shims)"
 fi
 
-# Variables after the following line get only sourced once
-if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
-
-#export PATH="$HOME/.rd/bin:$HOME/.local/bin${PATH:+:}$PATH"
-
-export __SESS_VARS_SOURCED=1
+{{ if and (eq .chezmoi.os "darwin") (has "dev" .usages) (has "perso" .usages) -}}
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+{{- end }}

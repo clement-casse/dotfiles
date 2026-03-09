@@ -1,10 +1,10 @@
 README.md
 install.sh
+.mise.toml
 
 {{ if ne .chezmoi.os "darwin" }}
 Library/
 Library/**/*
-.chezmoiscripts/darwin/
 .chezmoiscripts/darwin/**/*
 {{ end }}
 

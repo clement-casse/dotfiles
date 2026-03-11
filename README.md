@@ -13,3 +13,8 @@ xcode-select --install;
 ```zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
 ```
+
+- Install chezmoi
+```zsh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+```

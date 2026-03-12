@@ -22,8 +22,16 @@ if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
   source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
 fi
 
-setopt autocd
-setopt histignorespace
+setopt always_to_end          # When completing a word, move the cursor to the end of the word
+setopt append_history         # this is default, but set for share_history
+setopt auto_cd                # cd by typing directory name if it's not a command
+setopt hist_find_no_dups      # When searching history don't show results already cycled through twice
+setopt hist_ignore_dups       # Do not write events to history that are duplicates of previous events
+setopt histignorespace        # remove commands from the history when the first character is a space
+setopt no_beep                # silence all bells and beeps
+setopt notify                 # report the status of backgrounds jobs immediately
+setopt pushd_ignore_dups      # Don't push duplicates onto the stack
+setopt share_history          # share history between different instances of the shell
 setopt rm_star_silent
 
 fpath=(~/.local/share/zsh $fpath)
@@ -49,6 +57,9 @@ if [[ $TERM != "dumb" ]]; then
   eval "$(pay-respects zsh --alias)"
 fi
 
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
 alias -- eza='eza --icons auto --git --group-directories-first --links --header --git --classify -a'
 alias -- la='eza -a'
 alias -- ll='eza -l'

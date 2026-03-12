@@ -45,6 +45,7 @@ darwinPackages:
 
     # Python
     - "donjayamanne.python-extension-pack"
+    - "ms-python.python"
     - "ms-toolsai.jupyter"
     - "charliermarsh.ruff"
 
@@ -62,6 +63,7 @@ darwinPackages:
     - "orbstack"
     - "orion"
     - "raindropio"
+    - "rustrover"
     - "signal"
     - "vlc"
 
@@ -71,4 +73,3 @@ darwinPackages:
     mas:
     - name: "Tailscale"
       id: "1475387142"
-  

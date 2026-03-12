@@ -15,6 +15,10 @@ fi
 defaults write NSGlobalDomain AppleIconAppearanceTheme -string ClearDark
 defaults write NSGlobalDomain AppleIconAppearanceTintColor -string Graphite
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -int 1
+defaults write NSGlobalDomain _HIHideMenuBar -int 0
+defaults write NSGlobalDomain AppleMetricUnits -int 1
+defaults write NSGlobalDomain AppleTemperatureUnit -string Celsius
+defaults write NSGlobalDomain AppleMeasurementUnits -string Centimeters
 
 # Keyboard
 
@@ -56,6 +60,11 @@ trap 'killall Dock' EXIT
 defaults write com.apple.dock autohide -int 0
 defaults write com.apple.dock orientation -string bottom
 defaults write com.apple.dock show-recents -int 0
+defaults write com.apple.dock show-process-indicators -bool true
+defaults write com.apple.dock wvous-tl-corner -int 1
+defaults write com.apple.dock wvous-tr-corner -int 1
+defaults write com.apple.dock wvous-bl-corner -int 1
+defaults write com.apple.dock wvous-br-corner -int 1
 
 declare -a remove_labels=(
 	Safari

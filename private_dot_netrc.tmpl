@@ -1,3 +1,5 @@
+{{ if and (hasKey . "additionalNetrcEntries") }}
 {{ range .additionalNetrcEntries -}}
 {{ template "netrc.tmpl" . }}
 {{ end -}}
+{{- end }}

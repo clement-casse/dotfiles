@@ -1,9 +1,14 @@
+### MANAGED BY CHEZMOI.
+
+{{ if and (hasKey . "additionalSessionPaths") (not (empty .additionalSessionPaths)) -}}
+export PATH="{{- .additionalSessionPaths | join ":" -}}:$PATH"
+{{- end }}
+
 if [[ -e ~/.local/bin/mise ]]; then
     eval "$(~/.local/bin/mise activate zsh --shims)"
 fi
 
 {{ if and (eq .chezmoi.os "darwin") (has "dev" .usages) (has "perso" .usages) -}}
 # Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 {{- end }}

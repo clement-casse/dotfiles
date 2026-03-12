@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
+### MANAGED BY CHEZMOI.
+
 # If not running interactively, don't do anything
-#############################################
 case $- in
   *i*) ;;
   *) return ;;
@@ -9,7 +10,6 @@ esac
 [ -z "$PS1" ] && return
 
 # If zsh is emulating another shell, don't source .zshrc
-#############################################
 if [[ $0 == 'ksh' ]] || [[ $0 == 'sh' ]]; then
   source "${HOME}/.shrc"
   exit
@@ -36,9 +36,9 @@ autoload -Uz compinit && compinit
 
 {{ if has "dev" .usages -}}
 
+source <(chezmoi completion zsh)
 source <(jj util completion zsh)
 source <(mise completion zsh)
-source <(chezmoi completion zsh)
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(direnv hook zsh)"

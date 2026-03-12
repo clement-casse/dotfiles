@@ -1,1 +1,9 @@
-eval "$(mise activate bash --shims)"
+### MANAGED BY CHEZMOI.
+
+{{ if and (hasKey . "additionalSessionPaths") (not (empty .additionalSessionPaths)) -}}
+export PATH="{{- .additionalSessionPaths | join ":" -}}:$PATH"
+{{- end }}
+
+if [[ -e ~/.local/bin/mise ]]; then
+    eval "$(mise activate bash --shims)"
+fi

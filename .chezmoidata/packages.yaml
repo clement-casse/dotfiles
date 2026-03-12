@@ -10,7 +10,6 @@ darwinPackages:
 
     casks:
     - "ghostty"
-    - "desktoppr"
     - "visual-studio-code"
     - "font-iosevka-nerd-font"
     - "font-jetbrains-mono-nerd-font"
@@ -58,6 +57,7 @@ darwinPackages:
 
     casks:
     - "antigravity"
+    - "desktoppr"
     - "discord"
     - "orbstack"
     - "orion"

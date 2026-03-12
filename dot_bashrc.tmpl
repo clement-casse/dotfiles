@@ -12,8 +12,8 @@ export PATH="{{- .additionalSessionPaths | join ":" -}}:$PATH"
 {{ if has "dev" .usages -}}
 
 if [[ $TERM != "dumb" ]]; then
-  eval "$(direnv hook bash)"
   eval "$(mise activate bash)"
+  eval "$(direnv hook bash)"
   eval "$(zoxide init bash --cmd cd)"
   eval "$(starship init bash)"
   eval "$(pay-respects bash --alias)"

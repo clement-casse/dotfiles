@@ -49,9 +49,8 @@ source <(jj util completion zsh)
 source <(mise completion zsh)
 
 if [[ $TERM != "dumb" ]]; then
-  eval "$(direnv hook zsh)"
   eval "$(mise activate zsh)"
-  eval "$(mise hook-env -s zsh)"
+  eval "$(direnv hook zsh)"
   eval "$(zoxide init zsh --cmd cd)"
   eval "$(starship init zsh)"
   eval "$(pay-respects zsh --alias)"

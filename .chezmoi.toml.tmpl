@@ -1,23 +1,35 @@
+{{- $name := "Clément Cassé" -}}
+{{- $email := "clement.casse@proton.me" -}}
+{{- $all_usages := list "perso" "dev" -}}
+{{- $usages := list "dev" -}}
 {{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
+
 {{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
 {{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
 {{-   $ephemeral = true -}}
-{{- end -}}
-{{- $name := promptStringOnce . "name" "Enter your name" -}}
-{{- $email := promptStringOnce . "email" "Enter your email address" -}}
-{{- $all_usages := list "perso" "dev" -}}
-{{- $usages := promptMultichoiceOnce
-    . "usages"
-    "What usage is this computer for"
-    $all_usages
-    (list "perso" "dev")
+{{- else -}}
+{{-   $name = promptStringOnce . "name" "Enter your name" -}}
+{{-   $email = promptStringOnce . "email" "Enter your email address" -}}
+{{-   $usages = promptMultichoiceOnce
+        . "usages"
+        "What usage is this computer for"
+        $all_usages
+        (list "perso" "dev")
 -}}
+{{- end -}}
 
 [data]
 name = {{ $name | quote }}
 email = {{ $email | quote }}
 usages = {{ $usages | toToml }}
 ephemeral = {{ $ephemeral }}
+hostname = {{ $hostname | quote }}
 
 additionalSessionPaths = []
 

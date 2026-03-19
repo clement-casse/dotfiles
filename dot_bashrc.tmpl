@@ -13,7 +13,6 @@ export PATH="{{- .additionalSessionPaths | join ":" -}}:$PATH"
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(mise activate bash)"
-  eval "$(direnv hook bash)"
   eval "$(zoxide init bash --cmd cd)"
   eval "$(starship init bash)"
   eval "$(pay-respects bash --alias)"

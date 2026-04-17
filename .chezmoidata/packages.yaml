@@ -67,6 +67,7 @@ darwinPackages:
     - "rustrover"
     - "signal"
     - "vlc"
+    - "zed"
 
     vscodeExtensions:
     - "visualjj.visualjj"

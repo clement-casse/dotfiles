@@ -24,6 +24,7 @@ darwinPackages:
 
     # Common
     - "editorconfig.editorconfig"
+    - "arturock.gitstash"
     - "rodrigocfd.format-comment"
     - "bufbuild.vscode-buf"
     - "bierner.markdown-mermaid"

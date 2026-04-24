@@ -30,6 +30,7 @@ darwinPackages:
     - "bierner.markdown-mermaid"
     - "hverlin.mise-vscode"
     - "ms-vscode-remote.remote-containers"
+    - "ryanluker.vscode-coverage-gutters"
 
     # Rust
     - "tamasfe.even-better-toml"

@@ -1,79 +1,83 @@
 darwinPackages:
   common:
     brews:
-    - "dockutil"
+      - "dockutil"
 
   dev:
+    taps:
+      - "momenbasel/tap"
+
     brews:
-    - "gettext"
-    - "git"
+      - "gettext"
+      - "git"
 
     casks:
-    - "ghostty"
-    - "visual-studio-code"
-    - "font-iosevka-nerd-font"
-    - "font-jetbrains-mono-nerd-font"
-    - "font-monaspace-nf"
+      - "font-iosevka-nerd-font"
+      - "font-jetbrains-mono-nerd-font"
+      - "font-monaspace-nf"
+      - "ghostty"
+      - "puremac"
+      - "visual-studio-code"
 
     vscodeExtensions:
-    # Themes
-    - "teabyii.ayu"
-    - "github.github-vscode-theme"
-    - "jdinhlife.gruvbox"
-    - "file-icons.file-icons"
+      # Themes
+      - "teabyii.ayu"
+      - "github.github-vscode-theme"
+      - "jdinhlife.gruvbox"
+      - "file-icons.file-icons"
 
-    # Common
-    - "editorconfig.editorconfig"
-    - "arturock.gitstash"
-    - "rodrigocfd.format-comment"
-    - "bufbuild.vscode-buf"
-    - "bierner.markdown-mermaid"
-    - "hverlin.mise-vscode"
-    - "ms-vscode-remote.remote-containers"
-    - "ryanluker.vscode-coverage-gutters"
+      # Common
+      - "editorconfig.editorconfig"
+      - "arturock.gitstash"
+      - "rodrigocfd.format-comment"
+      - "bufbuild.vscode-buf"
+      - "bierner.markdown-mermaid"
+      - "hverlin.mise-vscode"
+      - "ms-vscode-remote.remote-containers"
+      - "ryanluker.vscode-coverage-gutters"
 
-    # Rust
-    - "tamasfe.even-better-toml"
-    - "rust-lang.rust-analyzer"
-    - "vadimcn.vscode-lldb"
-    - "masterustacean.cargo-runner"
-    - "mitsuhiko.insta"
-    - "matteobigoi.bacon-ls-vscode"
+      # Rust
+      - "tamasfe.even-better-toml"
+      - "rust-lang.rust-analyzer"
+      - "vadimcn.vscode-lldb"
+      - "masterustacean.cargo-runner"
+      - "mitsuhiko.insta"
+      - "matteobigoi.bacon-ls-vscode"
 
-    # Typst
-    - "myriad-dreamin.tinymist"
-    
-    # Go
-    - "golang.go"
+      # Typst
+      - "myriad-dreamin.tinymist"
 
-    # Python
-    - "donjayamanne.python-extension-pack"
-    - "ms-python.python"
-    - "ms-toolsai.jupyter"
-    - "charliermarsh.ruff"
+      # Go
+      - "golang.go"
+
+      # Python
+      - "donjayamanne.python-extension-pack"
+      - "ms-python.python"
+      - "ms-toolsai.jupyter"
+      - "charliermarsh.ruff"
 
   perso:
     taps:
-    - "protonpass/tap"
+      - "protonpass/tap"
 
     brews:
-    - "pass-cli"
+      - "pass-cli"
 
     casks:
-    - "antigravity"
-    - "desktoppr"
-    - "discord"
-    - "orbstack"
-    - "orion"
-    - "raindropio"
-    - "rustrover"
-    - "signal"
-    - "vlc"
-    - "zed"
+      - "desktoppr"
+      - "discord"
+      - "nvidia-geforce-now"
+      - "orbstack"
+      - "orion"
+      - "raindropio"
+      - "rustrover"
+      - "signal"
+      - "vlc"
+      - "zed"
 
     vscodeExtensions:
-    - "visualjj.visualjj"
+      - "visualjj.visualjj"
 
     mas:
-    - name: "Tailscale"
-      id: "1475387142"
+      - name: "Tailscale"
+        id: "1475387142"

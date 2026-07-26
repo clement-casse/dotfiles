@@ -1,0 +1,7 @@
+[bootstrap.packages]
+"brew:mas" = "latest"
+"brew-cask:puremac" = "latest"
+"brew-cask:orion" = "latest"
+"brew-cask:raindropio" = "latest"
+"brew-cask:orbstack" = "latest"
+"mas:1475387142" = "latest" #Tailscale

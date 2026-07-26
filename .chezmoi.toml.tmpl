@@ -1,18 +1,20 @@
 {{- $name := "Clément Cassé" -}}
-{{- $email := "clement.casse@proton.me" -}}
-{{- $all_usages := list "perso" "dev" -}}
+{{- $email := "8605455+clement-casse@users.noreply.github.com" -}}
+{{- $all_usages := list "perso" "dev" "work" -}}
 {{- $usages := list "dev" -}}
-{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */ -}}
+{{- $headless := false -}}
 
-{{/* work around unreliable hostname on darwin */}}
+{{- /* workaround for unreliable hostname on darwin */}}
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq .chezmoi.os "darwin" -}}
 {{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
 {{- end -}}
 
-{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- /* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
 {{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
 {{-   $ephemeral = true -}}
+{{-   $headless = true -}}
 {{- else -}}
 {{-   $name = promptStringOnce . "name" "Enter your name" -}}
 {{-   $email = promptStringOnce . "email" "Enter your email address" -}}
@@ -23,12 +25,17 @@
         (list "perso" "dev")
 -}}
 {{- end -}}
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age1pq1anffdws38ju9njt28pljzzsahvcg36c69m64clksj47wlfw93gvx5js52aaqv97gs5t4y7jncrr8ua9j2rwjys55fj202hpae0w9sjcfd6n9syzfjky6pz2qzjp66pkx8hmdcurqwzhfz74zkgys3ap9hhqn0qkc76hn3jk269tqzlr6f2sdvaz8rveh0z92zesc2uw93n4vc8y9d2ew6wtrfdmx30jv09snryrqa93cpqfezv2x48n9536jjxyezd03vwjxra3p3u7p9auxkc4nhwlz76flg26cj05nd3cjwunhzkrtk6qkejp3mr0hggue4jv0836u6qg7tc4rlfwfdmushsek9yppjz68pwvc0xnrglh7xqtn6ax9smrvx6vzdqu2nkupzk2ukpkpr4j7d7tnhlas3s0skcfx4288t4z3n8zfczyn3eh0hpt7szjddqnzx63ydp3c978dktg37g5p5usx39zuacttjz7mxtge8xnsru6ndf92n4f3nm0my4khe09ytqgy5y28g5k3drpg3dn5rwec342hslvuqdj8zf9sp8mn77zzzf20md5my2axr3xp3zd5zafhc3580na63mcnn7r6jf805jwwvcve5d5url6f3rvttsu4nfg9m9t7vl5qwe9xzqmxdvyqxylwm8rdvhuxm2w925hrk6ycrqp034jxvkn2hatp08659jnvesmt0cj4cwjc4fjmtzfzxmk54y8ar4nr4xwpzrtccnd4txfj4sfeja436wq8a73ktdkm2t8c56c8mctplr2u2tlxpqs8yeluy3aqydt0wv4z7h6u0kctjpv6pwljzv406mqrefc5kzwltx9texh9cxugkf9g2hmhcrzakvmztygwjxp2s6v3ka2c0xmtcj2jjymdqgkyxe6yk2c5c94dtv53gd5w8cyfvjuq57aqcw2rvgu4x3juc5vggtyumdd5ggkwwdmn6zz8kjgd0wejhq5fxcle504v3z087xy3rrmyn4apcr4pqhey0gsdfjrv9uvs07krxalxp9pxlj65g462wees7ynrn7muc79xg95pucd70a5x7ums55aawf2rkqk4e7kpwxz3va8qqu4ycl2qs9mfk9m6a64nxwnt0qvswz4ustrcpx6ghrphv3h986njx9vn5pljuz5p3pefeehvqelzzwmmgl9dtwdzw7s2c296z2lstdlj9q9lmvjayr2cp096kumth3ta6xfejj2mpumgs64efez9j7f7avykrddr054t5vr5zvpmhqc9sclmzqag7dqywxsqymlyrpu4c2tp3t95pg2n8pdqramavqpsddxdzyg6czt3yd65rczj5mc2c3ee3wer8v4jj69258pdqlhrgzzxedaq407rylac8h9czeprjy00e9eszlup6lg9jggdq6m48fc6z42n3euxyxhr8ervg0gj49467yzwckuyfhegtqvfdwnp6ymvywa76efchnunnz0gtzasg3hcrhrg98u4qp8n3rfgxemq0wcpvae997z3fmlspwy9nglacj5m9ccshvz6eq4x3j0gsqav0n9wh3ddtufynp5r3w4z5s86za2e6gdqux5ykcuqrkzkvlhpq922tcr3g0jzrt7eqz4h5wtsj2g5amrwzjncfq64c0gwq38nyhq6ys329qghjfn5enyx5vg567s4euqv0us2sv8qzm9rw6ug2wun8q4fdjjjyawury4sryswxqgqt7e862ugvde5xe8ldqxrkexz34f5rly8zhdz56lkhjc28p5e5sjytuczrm8fp7zavkjqn9u2sc60en2h7s7mqaltq9w42q9pzthy9srwmf5hfd9xlwmmccy7rfvmfsrxn4rl6rzdcnz4n7wf6nz7je0xuzhfy3ruehgxdhm8j0h82vfed3ww53dknn43787p02gsxgadma3q"
 
 [data]
 name = {{ $name | quote }}
 email = {{ $email | quote }}
 usages = {{ $usages | toToml }}
 ephemeral = {{ $ephemeral }}
+headless = {{ $headless }}
 hostname = {{ $hostname | quote }}
 
 additionalSessionPaths = []
@@ -37,12 +44,6 @@ additionalSessionPaths = []
 #machine = ""
 #login = ""
 #password = ""
-
-[data.additionalBrews]
-taps = []
-brews = []
-casks = []
-vscodeExtensions = []
 
 [github]
 refreshPeriod = "12h"

@@ -1,0 +1,65 @@
+[bootstrap.macos.dock]
+autohide = false
+orientation = "bottom"
+show_recents = false
+
+[bootstrap.macos.finder]
+show_all_files = false
+show_pathbar = true
+show_status_bar = false
+preferred_view_style = "list"
+
+[bootstrap.macos.keyboard]
+fn_state = true
+press_and_hold = false
+
+[bootstrap.macos.trackpad]
+tap_to_click = false
+three_finger_drag = false
+
+[bootstrap.macos.defaults]
+"com.apple.dock" = {
+    show-process-indicators = true,
+    wvous-tl-corner = 1,
+    wvous-tr-corner = 1,
+    wvous-bl-corner = 1,
+    wvous-br-corner = 1,
+}
+
+"com.apple.finder" = {
+    _FXSortFoldersFirst = 1,
+    _FXSortFoldersFirstOnDesktop = 1,
+    FXRemoveOldTrashItems = 1,
+
+    ShowHardDrivesOnDesktop = 1,
+    ShowExternalHardDrivesOnDesktop = 1,
+    ShowRemovableMediaOnDesktop = 1,
+    ShowMountedServersOnDesktop = 1,
+}
+
+"com.apple.desktopservices" = {
+    DSDontWriteNetworkStores = 1,
+    DSDontWriteUSBStores = 1,
+}
+
+NSGlobalDomain = {
+    AppleIconAppearanceTheme = "ClearDark",
+    AppleIconAppearanceTintColor = "Graphite",
+    AppleInterfaceStyleSwitchesAutomatically = 1,
+    _HIHideMenuBar = false,
+    AppleMetricUnits = 1,
+    AppleTemperatureUnit = "Celsius",
+    AppleMeasurementUnits = "Centimeters",
+    AppleKeyboardUIMode = 3,
+    NSTableViewDefaultSizeMode = 2,
+    AppleEnableMouseSwipeNavigateWithScrolls = true,
+    AppleEnableSwipeNavigateWithScrolls = true,
+    "com.apple.swipescrolldirection" = true,
+}
+
+[bootstrap.hooks.post-defaults]
+run = [
+    "killall Dock || true",
+    "killall Finder || true",
+    "killall SystemUIServer || true",
+]

@@ -1,0 +1,27 @@
+[settings.status]
+show_env = true
+show_tools = true
+
+[tools]
+age = "latest"
+eza = "latest"
+starship = "latest"
+usage = "latest"
+zoxide = "latest"
+"github:iffse/pay-respects" = "latest"
+
+[bootstrap.user]
+login_shell = "/bin/zsh"
+
+[bootstrap.mise_shell_activate]
+zprofile = "shims"
+zshrc = "activate"
+bash_profile = "shims"
+bashrc = "activate"
+
+{{ if not .headless -}}
+[bootstrap.packages]
+"brew-cask:font-iosevka-nerd-font" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:font-monaspace-nf" = "latest"
+{{- end }}

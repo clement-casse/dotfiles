@@ -1,0 +1,8 @@
+[bootstrap.packages]
+"brew-cask:discord" = "latest"
+"brew-cask:nvidia-geforce-now" = "latest"
+"brew-cask:signal" = "latest"
+"brew-cask:vlc" = "latest"
+
+[tools]
+"cargo:garage" = "latest"

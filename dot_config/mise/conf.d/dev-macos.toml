@@ -1,0 +1,12 @@
+[bootstrap.packages]
+"brew-cask:rustrover" = "latest"
+"brew-cask:zed" = "latest"
+
+[bootstrap.hooks.pre-packages]
+run = [
+    '''
+    if ! (id -Gn "$(whoami)" | grep '\b_developer\b' 2>&1 >/dev/null); then
+        sudo dscl . append /Groups/_developer GroupMembership "$(whoami)";
+    fi
+    ''',
+]

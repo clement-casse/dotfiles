@@ -1,15 +1,28 @@
 README.md
 install.sh
 .mise.toml
+key.txt.age
 
 {{ if ne .chezmoi.os "darwin" }}
-.chezmoiscripts/darwin/**/*
+.config/mise/conf.d/*macos*
 Library/
 Library/**/*
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
-.chezmoiscripts/linux/**/*
+.config/mise/conf.d/*linux*
 .config/Code/
 .config/Code/**/*
+{{ end }}
+
+{{ if not (has "perso" .usages) }}
+.config/mise/conf.d/*perso*
+{{ end }}
+
+{{ if not (has "dev" .usages) }}
+.config/mise/conf.d/*dev*
+{{ end }}
+
+{{ if not (has "work" .usages) }}
+.config/mise/conf.d/*work*
 {{ end }}

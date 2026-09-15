@@ -1,0 +1,23 @@
+[bootstrap.packages]
+"brew:gettext" = "latest"
+"brew:git" = "latest"
+
+[settings.cargo]
+binstall = true
+
+[tools]
+dive = "latest"
+github-cli = "latest"
+shellcheck = "latest"
+jj = "latest"
+pre-commit = "latest"
+"github:tbillington/kondo" = "latest"
+"forgejo:mergiraf/mergiraf" = "latest"
+
+grpcurl = "latest"
+"github:fullstorydev/grpcui" = "latest"
+
+rust = "latest"
+cargo-binstall = "latest"
+"cargo:bacon" = "latest"
+"github:crisidev/bacon-ls" = "latest"

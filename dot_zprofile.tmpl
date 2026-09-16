@@ -4,7 +4,7 @@ if [[ -e ~/.local/bin/mise ]]; then
     eval "$(~/.local/bin/mise activate zsh --shims)"
 fi
 
-{{ if and (eq .chezmoi.os "darwin") (has "dev" .usages) (has "perso" .usages) -}}
+{{ if and (eq .chezmoi.os "darwin") (has "perso" .usages) -}}
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 {{- end }}

@@ -1,9 +1,5 @@
 ### MANAGED BY CHEZMOI.
 
-{{ if and (hasKey . "additionalSessionPaths") (not (empty .additionalSessionPaths)) -}}
-export PATH="{{- .additionalSessionPaths | join ":" -}}:$PATH"
-{{- end }}
-
 if [[ -e ~/.local/bin/mise ]]; then
     eval "$(~/.local/bin/mise activate zsh --shims)"
 fi

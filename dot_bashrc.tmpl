@@ -5,10 +5,6 @@ if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
   builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
 fi
 
-{{ if and (hasKey . "additionalSessionPaths") (not (empty .additionalSessionPaths)) -}}
-export PATH="{{- .additionalSessionPaths | join ":" -}}:$PATH"
-{{- end }}
-
 {{ if has "dev" .usages -}}
 
 if [[ $TERM != "dumb" ]]; then

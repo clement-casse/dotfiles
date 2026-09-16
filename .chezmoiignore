@@ -19,10 +19,6 @@ Library/**/*
 .config/mise/conf.d/*perso*
 {{ end }}
 
-{{ if not (has "dev" .usages) }}
-.config/mise/conf.d/*dev*
-{{ end }}
-
 {{ if not (has "work" .usages) }}
 .config/mise/conf.d/*work*
 {{ end }}

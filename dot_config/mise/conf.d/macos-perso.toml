@@ -1,7 +1,18 @@
 [bootstrap.packages]
 "brew:mas" = "latest"
-"brew-cask:puremac" = "latest"
-"brew-cask:orion" = "latest"
-"brew-cask:raindropio" = "latest"
 "brew-cask:orbstack" = "latest"
+"brew-cask:orion" = "latest"
+"brew-cask:puremac" = "latest"
+"brew-cask:raindropio" = "latest"
+"brew-cask:rustrover" = "latest"
+"brew-cask:zed" = "latest"
 "mas:1475387142" = "latest" #Tailscale
+
+[bootstrap.hooks.pre-packages]
+run = [
+    '''
+    if ! (id -Gn "$(whoami)" | grep '\b_developer\b' 2>&1 >/dev/null); then
+        sudo dscl . append /Groups/_developer GroupMembership "$(whoami)";
+    fi
+    ''',
+]

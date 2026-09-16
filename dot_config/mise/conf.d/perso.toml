@@ -1,4 +1,9 @@
+[settings.cargo]
+binstall = true
+
 [bootstrap.packages]
+"brew:gettext" = "latest"
+"brew:git" = "latest"
 "brew-cask:discord" = "latest"
 "brew-cask:nvidia-geforce-now" = "latest"
 "brew-cask:signal" = "latest"
@@ -6,3 +11,17 @@
 
 [tools]
 "cargo:garage" = "latest"
+dive = "latest"
+github-cli = "latest"
+shellcheck = "latest"
+jj = "latest"
+"github:tbillington/kondo" = "latest"
+"forgejo:mergiraf/mergiraf" = "latest"
+
+grpcurl = "latest"
+"github:fullstorydev/grpcui" = "latest"
+
+rust = "latest"
+cargo-binstall = "latest"
+"cargo:bacon" = "latest"
+"github:crisidev/bacon-ls" = "latest"

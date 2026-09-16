@@ -17,45 +17,43 @@ press_and_hold = false
 tap_to_click = false
 three_finger_drag = false
 
-[bootstrap.macos.defaults]
-"com.apple.dock" = {
-    show-process-indicators = true,
-    wvous-tl-corner = 1,
-    wvous-tr-corner = 1,
-    wvous-bl-corner = 1,
-    wvous-br-corner = 1,
-}
+[bootstrap.macos.defaults."com.apple.dock"]
+show-process-indicators = true
+wvous-tl-corner = 1
+wvous-tr-corner = 1
+wvous-bl-corner = 1
+wvous-br-corner = 1
 
-"com.apple.finder" = {
-    _FXSortFoldersFirst = 1,
-    _FXSortFoldersFirstOnDesktop = 1,
-    FXRemoveOldTrashItems = 1,
 
-    ShowHardDrivesOnDesktop = 1,
-    ShowExternalHardDrivesOnDesktop = 1,
-    ShowRemovableMediaOnDesktop = 1,
-    ShowMountedServersOnDesktop = 1,
-}
+[bootstrap.macos.defaults."com.apple.finder"]
+_FXSortFoldersFirst = 1
+_FXSortFoldersFirstOnDesktop = 1
+FXRemoveOldTrashItems = 1
 
-"com.apple.desktopservices" = {
-    DSDontWriteNetworkStores = 1,
-    DSDontWriteUSBStores = 1,
-}
+ShowHardDrivesOnDesktop = 1
+ShowExternalHardDrivesOnDesktop = 1
+ShowRemovableMediaOnDesktop = 1
+ShowMountedServersOnDesktop = 1
 
-NSGlobalDomain = {
-    AppleIconAppearanceTheme = "ClearDark",
-    AppleIconAppearanceTintColor = "Graphite",
-    AppleInterfaceStyleSwitchesAutomatically = 1,
-    _HIHideMenuBar = false,
-    AppleMetricUnits = 1,
-    AppleTemperatureUnit = "Celsius",
-    AppleMeasurementUnits = "Centimeters",
-    AppleKeyboardUIMode = 3,
-    NSTableViewDefaultSizeMode = 2,
-    AppleEnableMouseSwipeNavigateWithScrolls = true,
-    AppleEnableSwipeNavigateWithScrolls = true,
-    "com.apple.swipescrolldirection" = true,
-}
+
+[bootstrap.macos.defaults."com.apple.desktopservices"]
+DSDontWriteNetworkStores = 1
+DSDontWriteUSBStores = 1
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleIconAppearanceTheme = "ClearDark"
+AppleIconAppearanceTintColor = "Graphite"
+AppleInterfaceStyleSwitchesAutomatically = 1
+_HIHideMenuBar = false
+AppleMetricUnits = 1
+AppleTemperatureUnit = "Celsius"
+AppleMeasurementUnits = "Centimeters"
+AppleKeyboardUIMode = 3
+NSTableViewDefaultSizeMode = 2
+AppleEnableMouseSwipeNavigateWithScrolls = true
+AppleEnableSwipeNavigateWithScrolls = true
+"com.apple.swipescrolldirection" = true
+
 
 [bootstrap.hooks.post-defaults]
 run = [

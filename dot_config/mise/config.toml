@@ -22,10 +22,3 @@ zprofile = "shims"
 zshrc = "activate"
 bash_profile = "shims"
 bashrc = "activate"
-
-{{ if not .headless -}}
-[bootstrap.packages]
-"brew-cask:font-iosevka-nerd-font" = "latest"
-"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
-"brew-cask:font-monaspace-nf" = "latest"
-{{- end }}

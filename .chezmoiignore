@@ -22,3 +22,7 @@ Library/**/*
 {{ if not (has "work" .usages) }}
 .config/mise/conf.d/*work*
 {{ end }}
+
+{{ if .headless }}
+.config/mise/conf.d/fonts.toml
+{{ end }}

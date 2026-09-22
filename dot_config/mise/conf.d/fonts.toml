@@ -1,0 +1,4 @@
+[bootstrap.packages]
+"brew-cask:font-iosevka-nerd-font" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:font-monaspace-nf" = "latest"

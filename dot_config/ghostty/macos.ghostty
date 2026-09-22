@@ -1,0 +1,13 @@
+macos-auto-secure-input = true
+macos-non-native-fullscreen = padded-notch
+macos-shortcuts = allow
+macos-titlebar-proxy-icon = hidden
+
+keybind = global:ctrl+f12=toggle_quick_terminal
+
+initial-window = false
+quick-terminal-autohide = true
+quick-terminal-position = top
+quick-terminal-size = 40%
+quick-terminal-screen = macos-menu-bar
+quick-terminal-space-behavior = remain

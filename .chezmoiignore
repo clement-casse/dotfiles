@@ -5,6 +5,7 @@ key.txt.age
 
 {{ if ne .chezmoi.os "darwin" }}
 .config/mise/conf.d/*macos*
+.config/ghostty/*macos*
 Library/
 Library/**/*
 {{ end }}

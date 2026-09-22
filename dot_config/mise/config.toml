@@ -13,6 +13,8 @@ starship = "latest"
 usage = "latest"
 zoxide = "latest"
 "github:iffse/pay-respects" = "latest"
+"github:tbillington/kondo" = "latest"
+"forgejo:mergiraf/mergiraf" = "latest"
 
 [bootstrap.user]
 login_shell = "/bin/zsh"

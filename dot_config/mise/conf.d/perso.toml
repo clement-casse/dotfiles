@@ -14,12 +14,6 @@ binstall = true
 dive = "latest"
 github-cli = "latest"
 shellcheck = "latest"
-jj = "latest"
-"github:tbillington/kondo" = "latest"
-"forgejo:mergiraf/mergiraf" = "latest"
-
-grpcurl = "latest"
-"github:fullstorydev/grpcui" = "latest"
 
 rust = "latest"
 cargo-binstall = "latest"

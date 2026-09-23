@@ -1,9 +1,0 @@
-HashKnownHosts no
-
-{{ if eq .chezmoi.os "darwin" -}}
-Host *
-  IdentityFile ~/.ssh/id_ed25519
-{{- end }}
-
-Host github.com
-  User git

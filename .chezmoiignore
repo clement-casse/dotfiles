@@ -14,6 +14,7 @@ key.txt.age
 
 {{ if not (has "perso" .usages) }}
 .config/mise/conf.d/*perso*
+.ssh/config.d/*perso*
 {{ end }}
 
 {{ if not (has "work" .usages) }}

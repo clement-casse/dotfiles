@@ -1,0 +1,6 @@
+HashKnownHosts no
+
+Host github.com
+  User git
+
+Include config.d/*

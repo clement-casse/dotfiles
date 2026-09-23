@@ -7,7 +7,6 @@
 mise.local.toml
 .mise.local.toml
 **/.claude/settings.local.json
-{{ if eq .chezmoi.os "darwin" -}}
 *.DS_Store
 .AppleDouble
 .LSOverride
@@ -18,5 +17,3 @@ mise.local.toml
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
-{{- end }}
-

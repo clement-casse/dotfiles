@@ -15,7 +15,8 @@ dive = "latest"
 github-cli = "latest"
 shellcheck = "latest"
 
-rust = "latest"
+rust = { version = "latest", mr_boxington = true }
+mr-boxington = "latest"
 cargo-binstall = "latest"
 "cargo:bacon" = "latest"
 "github:crisidev/bacon-ls" = "latest"

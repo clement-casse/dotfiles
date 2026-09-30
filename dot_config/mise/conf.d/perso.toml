@@ -17,6 +17,7 @@ shellcheck = "latest"
 
 rust = { version = "latest", mr_boxington = true }
 mr-boxington = "latest"
+fnox = "latest"
 cargo-binstall = "latest"
 "cargo:bacon" = "latest"
 "github:crisidev/bacon-ls" = "latest"

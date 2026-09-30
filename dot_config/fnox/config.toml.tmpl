@@ -1,0 +1,9 @@
+import = [
+{{ if has "perso" .usages -}}
+    "conf.d/perso.toml",
+{{- end }}
+]
+
+[providers.keychain]
+type = "keychain"
+service = "fnox"

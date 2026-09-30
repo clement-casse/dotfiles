@@ -13,6 +13,8 @@ key.txt.age
 {{ end }}
 
 {{ if not (has "perso" .usages) }}
+.config/fnox/*perso*
+.config/fnox/conf.d/*perso*
 .config/mise/conf.d/*perso*
 .ssh/config.d/*perso*
 {{ end }}

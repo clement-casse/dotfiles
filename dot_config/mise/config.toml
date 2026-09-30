@@ -19,9 +19,3 @@ jj = "latest"
 
 [bootstrap.user]
 login_shell = "/bin/zsh"
-
-[bootstrap.mise_shell_activate]
-zprofile = "shims"
-zshrc = "activate"
-bash_profile = "shims"
-bashrc = "activate"

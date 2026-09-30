@@ -47,6 +47,7 @@ source <(jj util completion zsh)
 source <(mise completion zsh)
 
 if [[ $TERM != "dumb" ]]; then
+  eval "$(fnox activate zsh)"
   eval "$(mise activate zsh)"
   eval "$(zoxide init zsh --cmd cd)"
   eval "$(starship init zsh)"

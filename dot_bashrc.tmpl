@@ -6,6 +6,7 @@ if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
 fi
 
 if [[ $TERM != "dumb" ]]; then
+  eval "$(fnox activate bash)"
   eval "$(mise activate bash)"
   eval "$(zoxide init bash --cmd cd)"
   eval "$(starship init bash)"

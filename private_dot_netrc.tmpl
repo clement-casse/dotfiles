@@ -1,5 +1,14 @@
-{{ if and (hasKey . "additionalNetrcEntries") }}
-{{ range .additionalNetrcEntries -}}
-{{ template "netrc.tmpl" . }}
+{{ if and (hasKey . "netrcEntries") }}
+{{ range .netrcEntries -}}
+machine {{ .machine }}
+{{- if hasKey . "login" }}
+  login {{ .login }}
+{{- end }}
+{{- if hasKey . "password" }}
+  password {{ .password }}
+{{- end }}
+{{- if hasKey . "account" }}
+  account {{ .account }}
+{{- end }}
 {{ end -}}
 {{- end }}

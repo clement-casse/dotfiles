@@ -45,6 +45,8 @@ autoload -Uz compinit && compinit
 source <(chezmoi completion zsh)
 source <(jj util completion zsh)
 source <(mise completion zsh)
+source <(fnox completion zsh)
+source <(mbx completion zsh)
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(fnox activate zsh)"

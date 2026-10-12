@@ -14,6 +14,7 @@ binstall = true
 dive = "latest"
 github-cli = "latest"
 shellcheck = "latest"
+claude = "latest"
 
 rust = { version = "latest", mr_boxington = true }
 mr-boxington = "latest"

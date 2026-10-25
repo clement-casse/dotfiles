@@ -1,6 +1,6 @@
-[settings]
-auto_update = true
-auto_update_check_duration = "3d"
+[settings.self_update]
+auto = true
+check_duration = "3d"
 
 [settings.status]
 show_env = true
